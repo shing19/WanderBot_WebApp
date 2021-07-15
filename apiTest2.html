@@ -1,0 +1,19 @@
+<html>
+    <head></head>
+    <body>
+        <button type="submit" onclick="UserAction()">Search</button>
+        <script>
+            function UserAction() {
+                var xhttp = new XMLHttpRequest();
+                xhttp.onreadystatechange = function() {
+                    if (this.readyState == 4 && this.status == 200) {
+                        alert(this.responseText);
+                    }
+                };
+                xhttp.open("GET", "http://101.89.157.205:1348/travel-logs?sort=-talking_time&per-page=1", true);
+                xhttp.setRequestHeader("Accept", "application/json");
+                xhttp.send("Your JSON Data Here");
+            }
+        </script>
+    </body>
+</html>
