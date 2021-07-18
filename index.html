@@ -157,7 +157,7 @@
 <body>
 	<div id="app" class="container" ref="app">
 		<video src="static/bg_video.mp4" type="video/mp4" muted="muted" loop="loop" autoplay="autoplay"></video>
-		<fetch-data url="http://101.89.157.205:1348/travel-logs?sort=-talking_time&per-page=1">
+		<fetch-data url="http://101.89.157.205:1348/travel-logs?sort=-talking_time&per-page=2">
 			<!-- <div id="main"> -->
 			<div slot="loading" class="loading">Loading messages</div>
 
@@ -229,14 +229,14 @@
 						</div>
 					</div>
 					<!-- 新建一条log -->
-					<div class="log" v-for="item in items.slice(0,2)">
+					<div class="log" v-for="item in items.slice(0,2).reverse()">
 					<div class="poi">
 						<img class="location" src="static/location.png" alt="location"/>
 						<div class="poiName">{{ item.address }}<br></div>
 					</div>
 					<div class="position">
 						<div class="year">{{ item.future_year }}年</div>
-						<!-- <div class="gps">经度：{{ item.location.lat }}}<br>纬度：{{ item.location.log }}</div> -->
+						<div class="gps">经度：{{ item.location.lng }}}<br>纬度：{{ item.location.lat }}</div>
 					</div>
 					<div class="content">
 						<div class="desc">
